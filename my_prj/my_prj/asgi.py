@@ -18,11 +18,9 @@ import my_app.routing
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'my_prj.settings')
 
 
-# application = get_asgi_application()
 application = ProtocolTypeRouter({
     'http': get_asgi_application(),
-    'websocket': AuthMiddlewareStack(
+    'websocket': 
         URLRouter(
-            my_app.routing.websocket_urlpatterns)
-        )
+            my_app.routing.websocket_urlpatterns)        
 })
